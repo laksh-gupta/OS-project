@@ -26,7 +26,7 @@ int sort(struct process *p,int n,int type)
 int returnIndex(struct process *p,int n,int a)
 {
     for(int i=0;i<n;i++)
-    {  
+    {
         if(p[i].process_id==a)
         return(i);
     }
@@ -76,19 +76,23 @@ int multiLevelScheduling(struct process *que1,int n)
                 que1[i].remaining_time-=time_quanta;
                 que2[n2++]=que1[i];
             }
-            printf("\np%d",que1[i].process_id);
+            printf("-->p%d",que1[i].process_id);
         }
+        printf("\n");
         que1=que2;
         n1=n2;
     }
+    printf("Turnaround Times:\n");
     for(i=0;i<n;i++)
-    printf("\n%d",p[i].turnaround_time);
+    {
+        printf("%d ",p[i].turnaround_time);
+    }
     return(1);
 }
 int main()
 {
     int a;
-    printf("\nSelect any one option\n1. Priority based scheduling\n2. FCFS based scheduling");
+    printf("\nSelect any one option\n1. Priority based scheduling\n2. FCFS based scheduling\n");
     scanf("%d",&a);
     int n;
     printf("\nEnter the number of processes");
